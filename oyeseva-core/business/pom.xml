@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>oyeseva</groupId>
+    <artifactId>oyeseva</artifactId>
+    <version>0.1</version>
+  </parent>
+  <artifactId>business</artifactId>
+  <name>business</name>
+  
+  <properties>
+	<!-- Generic properties -->
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<java.version>1.7</java.version>
+
+	<!-- SPRING version info -->
+	<spring.version>4.0.0.RELEASE</spring.version>
+  </properties>
+  <dependencies>
+  	<dependency>
+    	<groupId>oyeseva</groupId>
+    	<version>0.1</version>
+        <artifactId>entity</artifactId>
+    </dependency>
+    <dependency>
+    	<groupId>oyeseva</groupId>
+    	<version>0.1</version>
+        <artifactId>util</artifactId>
+    </dependency>
+  	<!-- LOG -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- JUnits -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+  	</dependencies>
+</project>
