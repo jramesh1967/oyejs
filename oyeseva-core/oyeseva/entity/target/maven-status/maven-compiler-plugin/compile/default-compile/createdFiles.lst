@@ -1,9 +1,8 @@
 com\oyeseva\entity\dao\BaseDAO.class
+com\oyeseva\entity\generated\User.class
+com\oyeseva\entity\dao\UserDAO.class
+com\oyeseva\service\SampleService.class
 com\oyeseva\entity\dao\SampleDAO.class
 com\oyeseva\entity\generated\UserProfile.class
 com\oyeseva\entity\dao\UserProfileDAO.class
-com\oyeseva\service\UserService.class
-com\oyeseva\service\SampleService.class
-com\oyeseva\entity\generated\User.class
 com\oyeseva\entity\generated\Sample.class
-com\oyeseva\entity\dao\UserDAO.class

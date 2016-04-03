@@ -6,31 +6,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oyeseva.business.service.UserService;
-import com.oyeseva.entity.mysql.generated.User;
-import com.oyeseva.entity.mysql.generated.UserProfile;
+import com.oyeseva.entity.generated.User;
 
-
-@RequestMapping("/users")
 @Controller
+@RequestMapping("/users")
 public class UserController {
 
+	@Autowired
 	private UserService userService;
 
+	//public UserController(){}
 	
+	/*
 	@Autowired
-	public UserController() {
+	public UserController(UserService userService) {
+		this.userService = userService;
 	}
-	
+	*/
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<String> login(
-			@RequestBody User user) {
+	public @ResponseBody ResponseEntity<String> login(@RequestBody User user) {
 		return null;
 	}
 
@@ -41,22 +42,19 @@ public class UserController {
 			throws Exception {
 		return null;
 	}
-	
-	//Lst all users
+
+	// Lst all users
 	@RequestMapping(method = RequestMethod.GET, value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<UserProfile> listUsers(@PathVariable("sessionId") String dummy) {
-		List<UserProfile> users = userService.listAll();
+	@ResponseBody
+	public List<User> listUsers() {
+		List<User> users = userService.listAll();
+		System.out.println("user list size = " + users.size());
 		/*
-		if (users != null) {
-			Iterator<UserProfile> iter = users.iterator();
-			while(iter.hasNext())
-			{
-				UserProfile profile = iter.next();
-				
-			}
-		}
-		return null;
-		*/
+		 * if (users != null) { Iterator<UserProfile> iter = users.iterator();
+		 * while(iter.hasNext()) { UserProfile profile = iter.next();
+		 * 
+		 * } } return null;
+		 */
 		return users;
 	}
 }

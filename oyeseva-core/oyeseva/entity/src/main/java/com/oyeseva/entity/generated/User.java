@@ -2,7 +2,6 @@ package com.oyeseva.entity.generated;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -19,10 +18,6 @@ public class User implements Serializable {
 	private int id;
 
 	private String uuid;
-
-	//bi-directional many-to-one association to UserProfile
-	@OneToMany(mappedBy="user")
-	private List<UserProfile> userProfiles;
 
 	public User() {
 	}
@@ -41,28 +36,6 @@ public class User implements Serializable {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
-	}
-
-	public List<UserProfile> getUserProfiles() {
-		return this.userProfiles;
-	}
-
-	public void setUserProfiles(List<UserProfile> userProfiles) {
-		this.userProfiles = userProfiles;
-	}
-
-	public UserProfile addUserProfile(UserProfile userProfile) {
-		getUserProfiles().add(userProfile);
-		userProfile.setUser(this);
-
-		return userProfile;
-	}
-
-	public UserProfile removeUserProfile(UserProfile userProfile) {
-		getUserProfiles().remove(userProfile);
-		userProfile.setUser(null);
-
-		return userProfile;
 	}
 
 }
