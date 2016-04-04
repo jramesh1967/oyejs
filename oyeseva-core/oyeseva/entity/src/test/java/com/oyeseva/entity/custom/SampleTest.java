@@ -7,8 +7,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.oyeseva.entity.dao.SampleDAO;
 import com.oyeseva.entity.generated.Sample;
-import com.oyeseva.service.SampleService;
 
 public class SampleTest {
 
@@ -17,7 +17,7 @@ public class SampleTest {
 
 	// Get service from context. (service's dependency (ProductDAO) is autowired
 	// in ProductService)
-	private static SampleService sampleService;
+	private static SampleDAO sampleDAO;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -36,7 +36,7 @@ public class SampleTest {
 
 		// Get service from context. (service's dependency (ProductDAO) is
 		// autowired in ProductService)
-		sampleService = ctx.getBean(SampleService.class);
+		sampleDAO = ctx.getBean(SampleDAO.class);
 	}
 
 	@After
@@ -49,8 +49,8 @@ public class SampleTest {
 
 		Sample sample = new Sample();
 		sample.setName("test_name2_" + System.currentTimeMillis());
-		sampleService.add(sample);
-		System.out.println("listAll: " + sampleService.listAll());
+		sampleDAO.persist(sample);
+		System.out.println("listAll: " + sampleDAO.findAll());
 	}
 
 	/*

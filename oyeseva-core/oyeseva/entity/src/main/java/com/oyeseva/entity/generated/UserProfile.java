@@ -16,25 +16,36 @@ public class UserProfile implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
+
+	@Column(name="new_password")
+	private String newPassword;
 
 	private String password;
 
 	private String username;
 
-	//bi-directional many-to-one association to User
+	//uni-directional many-to-one association to User
 	@ManyToOne
 	private User user;
 
 	public UserProfile() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getNewPassword() {
+		return this.newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
 
 	public String getPassword() {

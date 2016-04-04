@@ -1,6 +1,7 @@
 package com.oyeseva.business.service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -13,7 +14,7 @@ import com.oyeseva.entity.dao.UserProfileDAO;
 import com.oyeseva.entity.generated.User;
 import com.oyeseva.entity.generated.UserProfile;
 
-@Service ("userService")
+@Service("userService")
 public class UserService {
 
 	@Autowired
@@ -39,8 +40,38 @@ public class UserService {
 	}
 
 	@Transactional
+	public boolean isUserExist(String username) {
+		return userProfileDAO.findByUsername(username) != null;
+	}
+
+	@Transactional
 	public List<User> listAll() {
 		return userDAO.findAll();
 
+	}
+
+	@Transactional
+	public UserProfile doLogin(UserProfile userProfile) {
+		List<UserProfile> profiles = userProfileDAO
+				.findByUsernamePasswordUserActive(userProfile);
+		if (profiles.size() == 1) {
+			UserProfile up = (UserProfile) profiles.get(0);
+			User user = up.getUser();
+			user.setLastLoggedIn(new Date());
+			userDAO.persist(user);
+			return up;
+		} else
+			return null;
+
+	}
+
+	@Transactional
+	public UserProfile getByUsername(String username) {
+		return userProfileDAO.findByUsername(username);
+	}
+	
+	@Transactional
+	public UserProfile getById(Long id) {
+		return userProfileDAO.findById(id);
 	}
 }

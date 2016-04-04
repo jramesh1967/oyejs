@@ -25,24 +25,22 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(13) NOT NULL AUTO_INCREMENT,
   `uuid` varchar(45) NOT NULL,
+  `is_active` int(11) DEFAULT NULL,
+  `last_logged_in` datetime DEFAULT NULL,
+  `password_change_verification_code` varchar(255) DEFAULT NULL,
+  `password_change_verification_code_expires_by` datetime DEFAULT NULL,
+  `registration_verification_code` varchar(255) DEFAULT NULL,
+  `registration_verification_code_expires_by` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uuid_UNIQUE` (`uuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `user`
---
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (3,'05789c61-5917-479e-a56d-6675c575c396'),(10,'340df95e-ddd1-4dff-b689-1d1357e21f1b'),(9,'4aa46bfa-d7e7-4eba-ac7c-d808bef73343'),(13,'50c5c3e2-60de-4651-b63e-95ee08787506'),(6,'5cc50f7c-cf4f-42ee-b8cb-1cdfae401195'),(11,'6a136b84-21af-4417-9bdb-d5185f598a7f'),(1,'852f055c-5757-47c1-897b-11782e613021'),(2,'9ba15f35-e6ab-42bc-ba01-402b52f7ed8a'),(4,'a51d4a6b-e014-4aea-a92f-229cde125d53'),(12,'a5d1165c-fccc-484f-8095-60e41c343840'),(15,'a68c830b-1f5e-49a6-ba20-6d22a0b57726'),(14,'b9451c63-85dd-4576-a7bc-bb9295e47b89'),(8,'baf6b6cd-1d39-4b63-9c57-1f8722c7144b'),(5,'ce518629-679e-412e-ae14-a01b06c5231f'),(7,'d47a7579-7896-439e-b66f-383d0b0936c5');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

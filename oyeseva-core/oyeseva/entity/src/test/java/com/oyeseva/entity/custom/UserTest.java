@@ -11,14 +11,17 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.oyeseva.entity.dao.UserDAO;
+import com.oyeseva.entity.dao.UserProfileDAO;
 import com.oyeseva.entity.generated.User;
 import com.oyeseva.entity.generated.UserProfile;
-import com.oyeseva.service.UserService;
+//
 
 public class UserTest {
 
 	private static ClassPathXmlApplicationContext ctx;
-	private static UserService userService;
+	private static UserDAO userDAO;
+	private static UserProfileDAO userProfileDAO;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -34,7 +37,8 @@ public class UserTest {
 		ctx = new ClassPathXmlApplicationContext("classpath:/spring.xml");
 
 		// Get service from context. 
-		userService = ctx.getBean(UserService.class);
+		userDAO = ctx.getBean(UserDAO.class);
+		userProfileDAO = ctx.getBean(UserProfileDAO.class);
 	}
 
 	@After
@@ -43,19 +47,21 @@ public class UserTest {
 	}
 
 	@Test
-	public final void testSample() {
+	public final void testUser() {
 		//Create the User
 		User user = new User();
 		user.setUuid(UUID.randomUUID().toString());
+		int is_active = 0;
+		user.setIsActive(is_active);
 
 		//Create User Profile
 		UserProfile userProfile = new UserProfile();
 		userProfile.setUser(user);
 		userProfile.setUsername("username_" + + System.currentTimeMillis());
 		userProfile.setPassword("password_" + + System.currentTimeMillis());
-		userService.add(userProfile);
+		userDAO.persist(userProfile);
 		
-		List<UserProfile> profiles = userService.listAll();
+		List<UserProfile> profiles = userProfileDAO.findAll();
 		Iterator<UserProfile> iter = profiles.iterator();
 		while(iter.hasNext())
 		{
@@ -63,8 +69,12 @@ public class UserTest {
 			System.out.println("username = " + pf.getUsername());
 			System.out.println("password = " + pf.getPassword());
 			User u = pf.getUser();
+			System.out.println("User u exists :: " + userProfileDAO.findByUsername("'username'") != null);
+			
+			System.out.println("##### User u getbyid :: " + userProfileDAO.findById(u.getId()));
 			System.out.println("uuid = " + u.getUuid());
 		}
+		
 	}
 
 	/*
