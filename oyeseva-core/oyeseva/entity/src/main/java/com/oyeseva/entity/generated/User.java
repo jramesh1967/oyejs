@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,12 +18,14 @@ import javax.persistence.TemporalType;
  * 
  */
 @Entity
+@Table(name = "user")
 @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "is_active")
@@ -32,20 +35,21 @@ public class User implements Serializable {
 	@Column(name = "last_logged_in")
 	private Date lastLoggedIn;
 
-	@Column(name = "password_change_verification_code")
+	@Column(name = "password_change_verification_code", length = 255)
 	private String passwordChangeVerificationCode;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "password_change_verification_code_expires_by")
 	private Date passwordChangeVerificationCodeExpiresBy;
 
-	@Column(name = "registration_verification_code")
+	@Column(name = "registration_verification_code", length = 255)
 	private String registrationVerificationCode;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "registration_verification_code_expires_by")
 	private Date registrationVerificationCodeExpiresBy;
 
+	@Column(nullable = false, length = 45)
 	private String uuid;
 
 	public User() {

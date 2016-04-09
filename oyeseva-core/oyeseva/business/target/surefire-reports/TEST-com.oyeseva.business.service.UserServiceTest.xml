@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.oyeseva.business.service.UserServiceTest" time="13.112" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.oyeseva.business.service.UserServiceTest" time="6.645" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_31\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 8.1"/>
-    <property name="classworlds.conf" value="F:\projects\oyeseva\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf1830221874552947802.tmp"/>
+    <property name="classworlds.conf" value="F:\projects\oyeseva\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf780789718544177087.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_31\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Lenovo\FusionEngine;C:\Program Files (x86)\Intel\TXE Components\TCS\;C:\Program Files\Intel\TXE Components\TCS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;C:\Program Files (x86)\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\nodejs\;C:\Program Files\TortoiseGit\bin;C:\Ruby22\bin;C:\apache-maven-3.3.3\bin;C:\Users\jumpstartlap1\AppData\Roaming\npm;F:\projects\olive\gradle\gradle-2.10\bin;C:\Users\jumpstartlap1\AppData\Local\atom\bin;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,5 +61,107 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.oyeseva.business.service.UserServiceTest" name="testUser" time="13.112"/>
+  <testcase classname="com.oyeseva.business.service.UserServiceTest" name="testUser" time="6.645">
+    <error message="could not execute statement; SQL [n/a]; constraint [email_UNIQUE]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement" type="org.springframework.dao.DataIntegrityViolationException">org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [email_UNIQUE]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:188)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:154)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:519)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:757)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:726)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:478)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:272)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:646)
+	at com.oyeseva.business.service.UserService$$EnhancerByCGLIB$$b72cce20.update(&lt;generated&gt;)
+	at com.oyeseva.business.service.UserServiceTest.testUser(UserServiceTest.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:72)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:112)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:190)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:62)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3281)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3183)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3525)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:158)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:453)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:345)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:350)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:56)
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1218)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:421)
+	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.beforeTransactionCommit(JdbcTransaction.java:101)
+	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.commit(AbstractTransactionImpl.java:177)
+	at org.hibernate.jpa.internal.TransactionImpl.commit(TransactionImpl.java:77)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:515)
+	... 42 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry &apos;CHANGED@gmail.com&apos; for key &apos;email_UNIQUE&apos;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.Util.getInstance(Util.java:387)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:932)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2478)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2625)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2551)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2073)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2009)
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5094)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1994)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:187)
+	... 57 more
+</error>
+    <system-out>Hibernate: insert into user (is_active, last_logged_in, password_change_verification_code, password_change_verification_code_expires_by, registration_verification_code, registration_verification_code_expires_by, uuid) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into user_profile (email, new_password, password, phone, user_id) values (?, ?, ?, ?, ?)
+Hibernate: select userprofil0_.id as id1_1_, userprofil0_.email as email2_1_, userprofil0_.new_password as new_pass3_1_, userprofil0_.password as password4_1_, userprofil0_.phone as phone5_1_, userprofil0_.user_id as user_id6_1_ from user_profile userprofil0_ where userprofil0_.id=95
+Hibernate: select user0_.id as id1_0_0_, user0_.is_active as is_activ2_0_0_, user0_.last_logged_in as last_log3_0_0_, user0_.password_change_verification_code as password4_0_0_, user0_.password_change_verification_code_expires_by as password5_0_0_, user0_.registration_verification_code as registra6_0_0_, user0_.registration_verification_code_expires_by as registra7_0_0_, user0_.uuid as uuid8_0_0_ from user user0_ where user0_.id=?
+Hibernate: select userprofil0_.id as id1_1_0_, userprofil0_.email as email2_1_0_, userprofil0_.new_password as new_pass3_1_0_, userprofil0_.password as password4_1_0_, userprofil0_.phone as phone5_1_0_, userprofil0_.user_id as user_id6_1_0_ from user_profile userprofil0_ where userprofil0_.id=?
+Hibernate: select user0_.id as id1_0_0_, user0_.is_active as is_activ2_0_0_, user0_.last_logged_in as last_log3_0_0_, user0_.password_change_verification_code as password4_0_0_, user0_.password_change_verification_code_expires_by as password5_0_0_, user0_.registration_verification_code as registra6_0_0_, user0_.registration_verification_code_expires_by as registra7_0_0_, user0_.uuid as uuid8_0_0_ from user user0_ where user0_.id=?
+Hibernate: update user_profile set email=?, new_password=?, password=?, phone=?, user_id=? where id=?
+</system-out>
+    <system-err>log4j:WARN No appenders could be found for logger (org.springframework.core.env.StandardEnvironment).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+</system-err>
+  </testcase>
 </testsuite>

@@ -14,7 +14,7 @@
         ">
      
     <!-- Scans the classpath for annotated components that will be auto-registered as Spring beans -->
-    <context:component-scan base-package="com.oyeseva" />
+    <context:component-scan base-package="com.oyeseva.entity" />
     <!-- Activates various annotations to be detected in bean classes e.g: @Autowired -->
     <context:annotation-config />
  
@@ -37,12 +37,13 @@
             </bean>
         </property>
     </bean>
- 
+
     <!-- Transactions -->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
+    
     <!-- enable the configuration of transactional behavior based on annotations -->
     <tx:annotation-driven transaction-manager="transactionManager" />
- 
+    
 </beans>
