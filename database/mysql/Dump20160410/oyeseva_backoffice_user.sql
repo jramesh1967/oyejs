@@ -1,6 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `oyeseva` /*!40100 DEFAULT CHARACTER SET utf16 */;
-USE `oyeseva`;
--- MySQL dump 10.13  Distrib 5.6.24, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: oyeseva
 -- ------------------------------------------------------
@@ -18,27 +16,30 @@ USE `oyeseva`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sample`
+-- Table structure for table `backoffice_user`
 --
 
-DROP TABLE IF EXISTS `sample`;
+DROP TABLE IF EXISTS `backoffice_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sample` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf16;
+CREATE TABLE `backoffice_user` (
+  `idbackoffice_user` int(11) NOT NULL AUTO_INCREMENT,
+  `backoffice_user_date_created` datetime DEFAULT NULL,
+  `backoffice_user_name` varchar(45) DEFAULT NULL,
+  `backoffice_user_password` varchar(45) DEFAULT NULL,
+  `backoffice_user_role` varchar(45) DEFAULT NULL,
+  `backoffice_user_status` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`idbackoffice_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sample`
+-- Dumping data for table `backoffice_user`
 --
 
-LOCK TABLES `sample` WRITE;
-/*!40000 ALTER TABLE `sample` DISABLE KEYS */;
-INSERT INTO `sample` VALUES (1,'test_name2'),(2,'test_name2'),(3,'test_name2'),(4,'test_name2'),(5,'test_name2'),(6,'test_name2_1458876974015'),(7,'test_name2_1458883375298'),(8,'test_name2_1458887650630'),(9,'test_name2_1458887849643'),(10,'test_name2_1458888040004'),(11,'test_name2_1458889690491'),(12,'test_name2_1458889789234'),(13,'test_name2_1458890935501'),(14,'test_name2_1458901072078'),(15,'test_name2_1458901553604'),(16,'test_name2_1458901738882'),(17,'test_name2_1458902573352');
-/*!40000 ALTER TABLE `sample` ENABLE KEYS */;
+LOCK TABLES `backoffice_user` WRITE;
+/*!40000 ALTER TABLE `backoffice_user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `backoffice_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-25 10:56:01
+-- Dump completed on 2016-04-10  2:57:15
