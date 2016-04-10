@@ -1,0 +1,21 @@
+<p>
+<h2>
+	Users <a class="btn btn-primary pull-right" href="#/customers/-1"><i
+		class="icon-plus-sign icon-white"></i> Create New Customer</a>
+</h2>
+
+<table class="table table-striped">
+	<th>Customer</th>
+	<th>Email</th>
+	<th>Phone</th>
+	<th>Status</th>
+	<th>Edit</th>
+	<tr ng-repeat="customer in customers">
+		<td><a href="#/customers/{{customer.idcustomer}}">View Profile</a></td>
+		<td>{{customer.customerEmail}}</td>
+		<td>{{customer.customerMobile}}</td>
+		<td>{{customer.user.customrStatus}}</td>
+		<td><a href="#/customers/{{customer.idcustomer}}"><img src="img/edit.png" alt="edit" height="26" width="26"></a></td>
+	</tr>
+</table>
+<br><br>

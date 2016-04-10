@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div id="wrapper" class="row-fluid">
+        <h3 class='menu'>Edit Customer</h3>
+        <div class="alert alert-error" ng-show="error">{{errorMessage}}</div>
+	<!-- pass in the variable if our form is valid or invalid -->
+    <form name="customerForm" ng-submit="editCustomer(customerForm.$valid)" novalidate>
+		<!-- EMAIL -->
+		<div class="form-group" ng-class="{ 'has-error' : customerForm.email.$invalid && !customerForm.email.$pristine }">
+			<label><strong>Email</strong></label>
+			<input type="email" name="email" class="form-control" ng-model="customer.customerEmail" disabled>
+			<span><p ng-show="customerForm.email.$invalid && !customerForm.email.$pristine" class="help-block">Enter a valid email.</p></span>
+		</div>
+
+        <!-- Mobile -->
+        <div class="form-group" ng-class="{ 'has-error' : customerForm.Mobile.$invalid && !customerForm.Mobile.$pristine }">
+            <label><strong>Mobile</strong></label>
+            <input type="text" name="Mobile" class="form-control" ng-model="customer.customerMobile" ng-minlength="10" ng-maxlength="13">
+            <p ng-show="customerForm.Mobile.$invalid && customerForm.Mobile.$pristine" class="help-block">Mobile is required.</p>
+            <p ng-show="customerForm.Mobile.$error.minlength" class="help-block">Mobile # is too short.</p>
+            <p ng-show="customerForm.Mobile.$error.maxlength" class="help-block">Mobile # is too long.</p>
+        </div>
+        
+        <!-- IS_ACTIVE -->
+        <div class="form-group" ng-class="{ 'has-error' : customerForm.isActive.$invalid && !customerForm.isActive.$pristine }">
+            <label><strong>Status</strong></label>
+            <input name="isActive" type="checkbox" ng-checked="customer.customerStatus">
+        </div>
+        
+		<!-- PASSWORD -->
+		<div class="form-group" ng-class="{ 'has-error' : customerForm.password.$invalid && !customerForm.password.$pristine }">
+			<label><strong>Password*</strong></label>
+			<input type="password" name="password" class="form-control" ng-model="customer.customerPassword" required>
+			<p ng-show="customerForm.password.$invalid && !customerForm.password.$pristine" class="help-block">Password is required.</p>
+		</div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="!customerForm.$valid">Submit</button>
+
+    </form>
+</div>
+</div>

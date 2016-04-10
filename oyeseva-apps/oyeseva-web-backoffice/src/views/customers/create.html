@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div id="wrapper" class="row-fluid">
+        <h3 class='menu'>Create Customer</h3>
+
+
+        <div ng-show="error"><font color="red">{{error}}</font></div>
+		<div ng-show="message"><font color="green">{{message}}</font></div>
+
+
+ <!-- pass in the variable if our form is valid or invalid -->
+    <form name="customerForm" ng-submit="register(customerForm.$valid)" novalidate>
+
+
+		<!-- EMAIL-->
+		<div class="form-group" ng-class="{ 'has-error' : customerForm.email.$invalid && !customerForm.email.$pristine && submitted }">
+			<label><strong>Email</strong></label>
+			<input type="email" name="email" class="form-control" ng-model="customer.customerEmail" ng-required>
+			<span><p ng-show="customerForm.email.$invalid && !customerForm.email.$pristine" class="help-block">Enter a valid email.</p></span>
+		</div>
+		
+
+        <!-- PHONE -->
+        <div class="form-group" ng-class="{ 'has-error' : customerForm.phone.$invalid && !customerForm.phone.$pristine && submitted }">
+            <label><strong>Phone</strong></label>
+            <input type="text" name="phone" class="form-control" ng-model="customer.customerMobile" ng-minlength="10" ng-maxlength="13" ng-required>
+            <p ng-show="customerForm.phone.$invalid && customerForm.phone.$pristine" class="help-block">Phone # is required.</p>
+            <p ng-show="customerForm.phone.$error.minlength" class="help-block">Phone # is too short.</p>
+            <p ng-show="customerForm.phone.$error.maxlength" class="help-block">Phone # is too long.</p>
+
+        </div>
+
+		<!-- PASSWORD -->
+		<div class="form-group" ng-class="{ 'has-error' : customerForm.password.$invalid && !customerForm.password.$pristine && submitted }">
+			<label><strong>Password*</strong></label>
+			<input type="password" name="password" class="form-control" ng-model="customer.customerPassword" ng-required>
+			<p ng-show="customerForm.password.$invalid && !customerForm.password.$pristine" class="help-block">Password is required.</p>
+		</div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+</div>

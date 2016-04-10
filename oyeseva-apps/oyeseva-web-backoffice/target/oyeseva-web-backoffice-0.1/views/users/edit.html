@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div id="wrapper" class="row-fluid">
+        <h3 class='menu'>Edit Customer</h3>
+        <div class="alert alert-error" ng-show="error">{{errorMessage}}</div>
+	<!-- pass in the variable if our form is valid or invalid -->
+    <form name="userForm" ng-submit="edituser(userForm.$valid)" novalidate>
+		<!-- EMAIL -->
+		<div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+			<label><strong>Email</strong></label>
+			<input type="email" name="email" class="form-control" ng-model="userProfile.email" disabled>
+			<span><p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p></span>
+		</div>
+
+        <!-- PHONE -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.phone.$invalid && !userForm.phone.$pristine }">
+            <label><strong>Phone</strong></label>
+            <input type="text" name="phone" class="form-control" ng-model="userProfile.phone" ng-minlength="10" ng-maxlength="13">
+            <p ng-show="userForm.phone.$invalid && userForm.phone.$pristine" class="help-block">Phone is required.</p>
+            <p ng-show="userForm.phone.$error.minlength" class="help-block">Phone # is too short.</p>
+            <p ng-show="userForm.phone.$error.maxlength" class="help-block">Phone # is too long.</p>
+        </div>
+        
+        <!-- IS_ACTIVE -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.isActive.$invalid && !userForm.isActive.$pristine }">
+            <label><strong>Status</strong></label>
+            <input name="isActive" type="checkbox" ng-checked="userProfile.isActive">
+        </div>
+        
+		<!-- PASSWORD -->
+		<div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+			<label><strong>Password*</strong></label>
+			<input type="password" name="password" class="form-control" ng-model="userProfile.password" required>
+			<p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Password is required.</p>
+		</div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="!userForm.$valid">Submit</button>
+
+    </form>
+</div>
+</div>

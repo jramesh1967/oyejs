@@ -1,0 +1,21 @@
+<p>
+<h2>
+	Users <a class="btn btn-primary pull-right" href="#/users/-1"><i
+		class="icon-plus-sign icon-white"></i> Create New User</a>
+</h2>
+
+<table class="table table-striped">
+	<th>User</th>
+	<th>Email</th>
+	<th>Phone</th>
+	<th>Status</th>
+	<th>Edit</th>
+	<tr ng-repeat="userProfile in userProfiles">
+		<td><a href="#/users/{{userProfile.user.id}}">View Profile</a></td>
+		<td>{{userProfile.email}}</td>
+		<td>{{userProfile.phone}}</td>
+		<td>{{userProfile.user.isActive}}</td>
+		<td><a href="#/users/{{userProfile.user.id}}"><img src="img/edit.png" alt="edit" height="26" width="26"></a></td>
+	</tr>
+</table>
+<br><br>
