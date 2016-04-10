@@ -1,1 +1,0 @@
-make sure that the Fetch Type is EAGER in generated entities where there is a master/detail relationship
